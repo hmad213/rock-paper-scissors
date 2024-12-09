@@ -14,26 +14,27 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     let userInput
+    userInput = prompt("Enter rock, paper, or scissors: ");
     while(true){
-        userInput = prompt("Enter rock, paper, or scissors: ");
         userInput = userInput.toLowerCase()
         if(userInput === "rock" || userInput === "paper" || userInput === "scissors"){
             return userInput
         }
+        userInput = prompt("Invalid input! Enter rock, paper, or scissors: ");
     }
 }
 
 function playGame(){
     function playRound(humanChoice, computerChoice){
         if(humanChoice === computerChoice){
-            console.log("It's a draw. Both chose " + humanChoice);
+            alert("It's a draw. Both chose " + humanChoice);
         }
         else if(humanChoice === "rock" && computerChoice === "paper" || humanChoice === "paper" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "rock"){
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            alert(`You lose! ${computerChoice} beats ${humanChoice}`);
             computerScore++;
         }
         else{
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            alert(`You win! ${humanChoice} beats ${computerChoice}`);
             humanScore++;
         }
     }
@@ -47,8 +48,8 @@ function playGame(){
 
         playRound(humanChoice, computerChoice);
     }
-    console.log(`Your score is ${humanScore}`);
-    console.log(`The computer's score is ${computerScore}`);
+    alert(`Your score is ${humanScore}`);
+    alert(`The computer's score is ${computerScore}`);
 }
 
 playGame();
